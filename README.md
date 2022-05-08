@@ -1,6 +1,4 @@
-# Symfony Base Repository
-
-This repository contains the basic configuration to run Symfony applications with MySQL database
+# Codenip Weather API
 
 ## Content
 - PHP container running version 8.1.1
@@ -12,6 +10,5 @@ This repository contains the basic configuration to run Symfony applications wit
 - `make stop` to stop the containers
 - `make restart` to restart the containers
 - `make prepare` to install dependencies with composer (once the project has been created)
-- `make run` to start a web server listening on port 1000 (8000 in the container)
 - `make logs` to see application logs
 - `make ssh-be` to SSH into the application container

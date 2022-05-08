@@ -34,26 +34,6 @@ services:
       PHP_IDE_CONFIG: serverName=codenip-weather-server
     networks:
       - codenip-weather-network
-    depends_on:
-      - codenip-weather-mysql
-
-  codenip-weather-mysql:
-    container_name: codenip-weather-mysql
-    image: mysql:8.0.26
-    ports:
-      - '3666:3306'
-    environment:
-      MYSQL_DATABASE: weather
-      MYSQL_ROOT_PASSWORD: root
-    volumes:
-      - codenip-weather-mysql-data:/var/lib/mysql
-    networks:
-      - codenip-weather-network
-    command: [ 'mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci' ]
 
 networks:
   codenip-weather-network:
-
-volumes:
-  codenip-weather-mysql-data:
-

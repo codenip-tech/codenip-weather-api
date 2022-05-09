@@ -1,6 +1,8 @@
 # Codenip Weather API
 This repository contains the code related to one of our streamings at https://twitch.tv/codenip_devs
 
+Link to the streaming re-uploaded to YouTube https://youtu.be/ewtkNP7kHYo
+
 ## Content
 - PHP container running version 8.1.1
 - MySQL container running version 8.0.26

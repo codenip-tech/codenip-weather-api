@@ -1,0 +1,15 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  App\Tests\Mock\MockHttpClient: ~
+
+  App\Service\WeatherService.test:
+    class: App\Service\WeatherService
+    decorates: App\Service\WeatherService
+    bind:
+      $httpClient: '@App\Tests\Mock\MockHttpClient'
+      $weatherApiKey: 'asdasd1234234'
+

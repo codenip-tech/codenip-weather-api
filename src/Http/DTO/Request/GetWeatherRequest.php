@@ -14,7 +14,7 @@ class GetWeatherRequest implements RequestDTO
 
     public function __construct(Request $request)
     {
-        $this->q = $request->query->get('q');
-        $this->aqi = $request->query->get('aqi');
+        $this->q = $request->request->get('q');
+        $this->aqi = $request->request->get('aqi');
     }
 }

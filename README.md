@@ -9,6 +9,6 @@
 - `make start` to start the containers
 - `make stop` to stop the containers
 - `make restart` to restart the containers
-- `make prepare` to install dependencies with composer (once the project has been created)
+- `make prepare` to install dependencies with composer (once the project has been created) as well as Yarn dependencies
 - `make logs` to see application logs
 - `make ssh-be` to SSH into the application container

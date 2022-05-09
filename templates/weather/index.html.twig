@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <form action="{{ path('get_weather') }}" method="post">
+        <div class="row mt-5 mb-3">
+            <div class="col-md-8">
+                <label for="q" class="form-label">Location</label>
+                <input type="text" class="form-control" id="q" name="q" aria-describedby="queryHelp">
+                <div id="emailHelp" class="form-text">Introduce a city, country or any location.</div>
+            </div>
+            <div class="col-md-4">
+                <label for="aqi" class="form-label">Air quality</label>
+                <select id="aqi" name="aqi" class="form-select" aria-label="Air quality selector">
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                </select>
+            </div>
+        </div>
+        <div class="row m-1">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+    <div class="row mt5 mb-3">
+        <div class="row mt-3">
+            {% if result %}
+                <pre>
+                    <code>
+                        {{ result|json_encode(constant('JSON_PRETTY_PRINT'))|trim('{}') }}
+                    </code>
+                </pre>
+            {% elseif error %}
+                <p class="text-center">{{ error }}</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

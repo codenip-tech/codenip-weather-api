@@ -1,4 +1,5 @@
 App\Http\DTO\Request\GetWeatherRequest:
   properties:
     q:
-      - NotBlank: ~
+      - NotBlank:
+          message: 'Location is mandatory'

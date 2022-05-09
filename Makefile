@@ -27,6 +27,7 @@ build: ## Rebuilds all the containers
 
 prepare: ## Runs backend commands
 	$(MAKE) composer-install
+	$(MAKE) install-assets
 
 run: ## starts the Symfony development server in detached mode
 	U_ID=${UID} docker exec -it --user ${UID} ${DOCKER_BE} symfony serve -d
@@ -37,6 +38,9 @@ logs: ## Show Symfony logs in real time
 # Backend commands
 composer-install: ## Installs composer dependencies
 	U_ID=${UID} docker exec --user ${UID} ${DOCKER_BE} composer install --no-interaction
+
+install-assets: ## Installs frontend dependencies
+	U_ID=${UID} docker exec --user ${UID} ${DOCKER_BE} yarn
 # End backend commands
 
 ssh-be: ## bash into the be container

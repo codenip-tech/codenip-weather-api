@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Http\DTO\Request\GetWeatherRequest;
 use App\Service\WeatherService;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class CurrentWeatherController
 {
@@ -16,13 +15,9 @@ class CurrentWeatherController
     {
     }
 
-    public function __invoke(Request $request): Response
+    public function __invoke(GetWeatherRequest $request): Response
     {
-        if (null === $request->query->get('q')) {
-            throw new BadRequestHttpException('"q" parameter is mandatory');
-        }
-
-        $data = $this->service->__invoke($request->query->get('q'), $request->query->get('aqi'));
+        $data = $this->service->__invoke($request->q, $request->aqi);
 
         return new JsonResponse($data);
     }

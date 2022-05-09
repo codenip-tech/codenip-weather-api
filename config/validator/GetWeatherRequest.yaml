@@ -1,0 +1,4 @@
+App\Http\DTO\Request\GetWeatherRequest:
+  properties:
+    q:
+      - NotBlank: ~
